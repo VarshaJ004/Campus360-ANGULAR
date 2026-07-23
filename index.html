@@ -27,7 +27,7 @@
 <p ng-style="{'color' : totalfaculty >=100 ? 'green':'red','fontsize':'25px'}">Total Faculty : {{totalfaculty}}</p>
 
 <hr>
-<h1>Student List</h1>
+<h1 style="color:rgb(2, 49, 3)">Student List</h1>
 
 
 
@@ -83,6 +83,92 @@
 
     </div>
 
+
+    <hr>
+    <h1 style="color : red">ng-init demo</h1>
+    <div ng-init="collegecode='FIT25MCA-2045';location='Angamaly'">
+        <p>College Code : {{collegecode}}</p>
+        <p>Location : {{location}}</p>
+
+    </div>
+
+    <h2>ng-disabled Demo</h2>
+
+    <button ng-click="allowadmission()">
+        Allow Admission
+    </button>
+    
+    <br><br>
+    
+    <button ng-disabled="isDisabled">
+        Admission Form
+    </button>
+
+
+    <hr>
+    <h2>ng-readonly demo</h2>
+    <label>CollegeId</label><br><br>
+    <input type="text" ng-readonly="isReadOnly" placeholder="Enter College Id"><br><br>
+    <button ng-click="isReadOnly = !isReadOnly">
+        Toggle Readonly</button>
+
+        <p>Readonly Status: {{isReadOnly}}</p>  
+
+
+        <hr>
+        <br><br>
+
+        <h2>Student Registration</h2>
+
+        <form name="studentForm">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" ng-model="student.name"  ng-pattern="/^[a-zA-Z ]+$/"  required>
+            <br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" ng-model="student.email" required>
+            <br><br>
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age" ng-model="student.age" required>
+            <br><br>
+            <label for="phone">Phone:</label><br>
+            <input type="tel" id="phone" name="phone" ng-model="student.phone" required>
+            <br><br>
+            <label for="department">Department:</label><br>
+            <input id="department" name="department" ng-model="student.department" required>
+            <br><br>
+            <label for="gender">Gender:</label><br>
+            <input type="text" id="gender" name="gender" ng-model="student.gender" required>
+            <br><br>
+            <label for="address">Address:</label><br>
+            <textarea id="address" name="address" ng-model="student.address" required></textarea>
+            <br><br>
+            <button type="submit" ng-click="registerStudent()">Register</button>
+        </form>
+
+    <hr>
+    <br><br>
+    <h2>Form Status</h2>
+    <p>
+        Form Valid: {{studentForm.$valid}}
+
+    </p>
+
+   <p>
+        Form Invalid: {{studentForm.$invalid}}
+    </p>
+
+    <p>
+        Form Pristine: {{studentForm.$pristine}}
+    </p>
+
+    <p>
+        Form Dirty: {{studentForm.$dirty}}
+
+    </p>
+
+    <p ng-show="studentForm.name.$touched && studentForm.name.$invalid " style="color: #cf2525;" >
+        Form fields are required.
+    </p>
 
 </body>
 </html>

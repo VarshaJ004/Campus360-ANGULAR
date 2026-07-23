@@ -24,6 +24,17 @@ app.controller('dashboardcontroller', function ($scope) {
         { name: "Bob" }
     ];
 
+    $scope.isDisabled = true;
+
+    $scope.allowadmission = function () {
+        $scope.isDisabled = false;
+    }; 
+
+    $scope.isReadOnly = true;
+    $scope.toggleReadOnly = function () {
+        $scope.isReadOnly = !$scope.isReadOnly;
+    };
+
     $scope.addStudent = function () {
         $scope.totalstudents++;
     };
